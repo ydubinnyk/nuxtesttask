@@ -45,12 +45,12 @@ UI elements are displayed in the chosen language
    cd your-repo
    
 2. Create `.env` file with credentials in the root of the repository and add your credentials:
-   # Example .env
-   WIKI_USERNAME=username
-   WIKI_PASSWORD=password
+   Example .env:
+   > WIKI_USERNAME=username
+   > WIKI_PASSWORD=password
 
-3. Run:
+4. Run:
    docker-compose up --build
    > Requirements: Docker must be installed on your machine.
-4. Open report:
+5. Open report:
    playwright-report/index.html
