@@ -1,0 +1,8 @@
+services:
+  playwright:
+    build: .
+    env_file: .env
+    init: true
+    ipc: host
+    volumes:
+      - ./playwright-report:/app/playwright-report
