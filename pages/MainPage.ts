@@ -7,8 +7,8 @@ export class MainPage {
     await this.page.goto('/wiki/Main_Page');
   }
 
-  /** Clicks the Log in link in the header (visible when not logged in) */
-  async clickLogIn() {
-    await this.page.getByRole('link', { name: 'Log in' }).click();
+  /** Navigates to the login page. Use this instead of clicking "Log in" to avoid language-dependent locators. */
+  async gotoLogin() {
+    await this.page.goto('/wiki/Special:UserLogin');
   }
 }

@@ -8,12 +8,9 @@ export class PreferencesPage {
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  /** Opens the User profile tab (Internationalization section is within it) */
+  /** Opens the User profile tab (first tab; Internationalization section is within it). Language-agnostic. */
   async openUserProfileTab() {
-    const userProfileTab = this.page.getByRole('link', { name: 'User profile' }).or(
-      this.page.getByRole('tab', { name: 'User profile' })
-    );
-    await userProfileTab.first().click();
+    await this.page.getByRole('tab').first().click();
   }
 
   /** Selects interface language from the Internationalization section (OOUI combobox, not native select).

@@ -7,17 +7,15 @@ export class LoginPage {
   async login(username: string, password: string) {
     await this.page.waitForLoadState('domcontentloaded');
 
-    // Wikipedia uses #wpName1, #wpPassword1; auth.wikimedia.org may use getByLabel
-    const usernameInput = this.page.locator('#wpName1').or(this.page.getByLabel(/username/i));
-    const passwordInput = this.page.locator('#wpPassword1').or(this.page.getByLabel(/password/i));
-    const submitButton = this.page.locator('#wpLoginAttempt').or(
-      this.page.getByRole('button', { name: 'Log in' })
-    );
+    // Use stable IDs; avoid getByLabel/getByRole as labels vary by UI language
+    const usernameInput = this.page.locator('#wpName1');
+    const passwordInput = this.page.locator('#wpPassword1');
+    const submitButton = this.page.locator('#wpLoginAttempt');
 
-    await usernameInput.first().waitFor({ state: 'visible', timeout: 10000 });
-    await usernameInput.first().fill(username);
-    await passwordInput.first().fill(password);
-    await submitButton.first().click();
+    await usernameInput.waitFor({ state: 'visible', timeout: 10000 });
+    await usernameInput.fill(username);
+    await passwordInput.fill(password);
+    await submitButton.click();
   }
 
   /** Waits for successful login (redirect away from login page) */
