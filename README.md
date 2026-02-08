@@ -41,16 +41,25 @@ UI elements are displayed in the chosen language
 
 ## How to run
 1. Clone the repository
+   
    git clone https://github.com/ydubinnyk/nuxtesttask.git
+   
    cd your-repo
    
 2. Create `.env` file with credentials in the root of the repository and add your credentials:
+   
    Example .env:
-   > WIKI_USERNAME=username
-   > WIKI_PASSWORD=password
+   
+   WIKI_USERNAME=username
+   
+   WIKI_PASSWORD=password
 
-4. Run:
+3. Run:
+   
    docker-compose up --build
+   
    > Requirements: Docker must be installed on your machine.
-5. Open report:
+   
+4. Open report:
+   
    playwright-report/index.html
