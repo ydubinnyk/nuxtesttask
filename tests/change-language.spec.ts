@@ -18,7 +18,6 @@ test.describe('Interface language switching', () => {
   test('authorized user can change interface language to German', async ({ page }) => {
     const preferencesPage = new PreferencesPage(page);
     await preferencesPage.goto();
-    await preferencesPage.openUserProfileTab();
     await preferencesPage.selectInterfaceLanguage('de - Deutsch');
     await preferencesPage.save();
 

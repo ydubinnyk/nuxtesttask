@@ -8,11 +8,6 @@ export class PreferencesPage {
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  /** Opens the User profile tab (first tab; Internationalization section is within it). Language-agnostic. */
-  async openUserProfileTab() {
-    await this.page.getByRole('tab').first().click();
-  }
-
   /** Selects interface language from the Internationalization section (OOUI combobox, not native select).
    * Uses ID so it works regardless of current UI language (e.g. when reverting to English from German). */
   async selectInterfaceLanguage(languageCode: string) {
